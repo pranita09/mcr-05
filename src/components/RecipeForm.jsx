@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useRecipe } from "../contexts/RecipeContext";
+import { toast } from "react-hot-toast";
 
 const styles = {
   position: "absolute",
@@ -44,8 +45,10 @@ export const RecipeForm = ({
 
     if (recipe) {
       dispatch({ type: "UPDATE_RECIPE", payload: newRecipe });
+      toast.success("Recipe updated successfully!")
     } else {
       dispatch({ type: "ADD_RECIPE", payload: newRecipe });
+      toast.success("Recipe added successfully!")
     }
     setName("");
     setCuisine("");
