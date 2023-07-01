@@ -40,7 +40,7 @@ export const RecipeProvider = ({ children }) => {
         payload: JSON.parse(storedRecepies),
       });
     } else {
-      dispatch({ type: "SET_RECEPIES", payload: JSON.parse(recipeData) });
+      dispatch({ type: "SET_RECEPIES", payload: recipeData });
     }
   }, []);
 
