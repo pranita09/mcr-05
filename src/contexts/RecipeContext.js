@@ -29,9 +29,16 @@ export const RecipeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const storedRecepies = localStorage.getItem("recipes");
+    const storedRecepies = localStorage.getItem(
+      "recipes",
+      JSON.stringify(recipeData)
+    );
     if (storedRecepies) {
-      dispatch({ type: "SET_RECEPIES", payload: JSON.parse(storedRecepies) });
+      localStorage.setItem("recipes", JSON.stringify(recipeData));
+      dispatch({
+        type: "SET_RECEPIES",
+        payload: JSON.parse(storedRecepies),
+      });
     } else {
       dispatch({ type: "SET_RECEPIES", payload: JSON.parse(recipeData) });
     }
