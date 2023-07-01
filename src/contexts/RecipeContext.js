@@ -15,6 +15,22 @@ const reducerFunc = (state, { type, payload }) => {
       return { ...state, searchCategory: payload };
     case "SET_SEARCH_INPUT":
       return { ...state, searchInput: payload };
+    case "ADD_RECIPE":
+      return { ...state, recipeData: [...state.recipeData, payload] };
+    case "DELETE_RECIPE":
+      return {
+        ...state,
+        recipeData: state.recipeData.filter(
+          (recipe) => recipe.id !== payload.id
+        ),
+      };
+    case "UPDATE_RECIPE":
+      return {
+        ...state,
+        recipeData: state.recipeData.map((recipe) =>
+          recipe.id === payload.id ? payload : recipe
+        ),
+      };
     default:
       return state;
   }
