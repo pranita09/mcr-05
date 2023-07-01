@@ -9,7 +9,7 @@ import { RecipeForm } from "../components/RecipeForm";
 
 export const Home = () => {
   const navigate = useNavigate();
-  const { state, dispatch, searchRecipes } = useRecipe();
+  const { dispatch, searchRecipes } = useRecipe();
 
   const [showRecipeForm, setShowRecipeForm] = useState(false);
   const [showRecipeFormToEdit, setShowRecipeFormToEdit] = useState(false);
