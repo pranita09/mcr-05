@@ -34,12 +34,12 @@ export const RecipeProvider = ({ children }) => {
       JSON.stringify(recipeData)
     );
     if (storedRecepies) {
-      localStorage.setItem("recipes", JSON.stringify(recipeData));
       dispatch({
         type: "SET_RECEPIES",
         payload: JSON.parse(storedRecepies),
       });
     } else {
+      localStorage.setItem("recipes", JSON.stringify(recipeData));
       dispatch({ type: "SET_RECEPIES", payload: recipeData });
     }
   }, []);
