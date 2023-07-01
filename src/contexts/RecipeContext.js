@@ -29,10 +29,7 @@ export const RecipeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const storedRecepies = localStorage.getItem(
-      "recipes",
-      JSON.stringify(recipeData)
-    );
+    const storedRecepies = localStorage.getItem("recipes");
     if (storedRecepies) {
       dispatch({
         type: "SET_RECEPIES",
