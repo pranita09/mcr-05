@@ -13,6 +13,7 @@ const styles = {
 
 export const RecipeForm = ({
   recipe,
+  toAdd,
   setShowRecipeForm,
   setShowRecipeFormToEdit,
 }) => {
@@ -51,7 +52,7 @@ export const RecipeForm = ({
     setIngredients("");
     setInstructions("");
     setImgUrl("");
-    setShowRecipeForm(false);
+    toAdd && setShowRecipeForm(false);
     recipe && setShowRecipeFormToEdit(false);
   };
 

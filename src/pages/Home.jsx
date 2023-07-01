@@ -95,7 +95,7 @@ export const Home = () => {
 
         <Modal open={showRecipeForm} onClose={() => setShowRecipeForm(false)}>
           <>
-            <RecipeForm setShowRecipeForm={setShowRecipeForm} />
+            <RecipeForm toAdd={"toAdd"} setShowRecipeForm={setShowRecipeForm} />
           </>
         </Modal>
       </div>
