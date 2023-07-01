@@ -4,9 +4,7 @@ import { recipeData } from "../data/data";
 export const RecipeContext = createContext();
 
 const initialState = {
-  recipeData: localStorage.getItem("recipes")
-    ? JSON.parse(localStorage.getItem("recipes"))
-    : [],
+  recipeData: [],
   searchCategory: "name",
   searchInput: "",
 };
@@ -47,7 +45,6 @@ const reducerFunc = (state, { type, payload }) => {
 };
 
 export const RecipeProvider = ({ children }) => {
-  localStorage.setItem("recipes", JSON.stringify(recipeData));
   const [state, dispatch] = useReducer(reducerFunc, initialState);
 
   const searchRecipes = () => {
@@ -75,6 +72,8 @@ export const RecipeProvider = ({ children }) => {
     const storedRecepies = localStorage.getItem("recipes");
     if (storedRecepies) {
       dispatch({ type: "SET_RECEPIES", payload: JSON.parse(storedRecepies) });
+    } else {
+      dispatch({ type: "SET_RECEPIES", payload: JSON.parse(recipeData) });
     }
   }, []);
 
